@@ -1,8 +1,16 @@
 import React from 'react'
+import {Data} from './data'
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <div>
+      <div className=''>{
+        
+        }
+
+      </div>
+      <div></div>
+    </div>
   )
 }
 

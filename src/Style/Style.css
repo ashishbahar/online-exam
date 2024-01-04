@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.nav_icons{
+    padding: 0px 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    
+}
+.nav_icons:hover{
+    transform: scale(1.2);
+    color: black    ;
+}
+.Nav_icon_1{
+    font-size: 30px;
+}
