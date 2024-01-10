@@ -4,7 +4,8 @@ import { FaHome } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import { FaHandPointRight } from "react-icons/fa";
 import { VscBook } from "react-icons/vsc";
-import '../Style/Style.css'
+// import '../Style/Style.css'
+
 const NavBar = () => {
   return (
     <div className="Navbar flex justify-between items-center px-10 py-5 fixed w-[100%] bg-[#FFF7F4]">
