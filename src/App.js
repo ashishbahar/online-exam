@@ -4,13 +4,15 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import HomePage from "./components/HomePage";
 import Quiz from "./components/Quiz";
+import Practise from './components/Practice'
 
 function App() {
   return (
     <>
       {/* <NavBar/>
       <HomePage/> */}
-      <Quiz/>
+      {/* <Quiz/> */}
+      <Practise/>
       
      
     </>

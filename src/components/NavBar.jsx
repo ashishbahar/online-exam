@@ -18,7 +18,7 @@ const NavBar = () => {
           <li className="flex list-none">
             <a className="nav_icons"><div className=" Nav_icon_1"><FaHome /></div>Home</a>
 
-            <a  className="nav_icons"><div  className=" Nav_icon_1"><IoPerson /></div>About</a>
+            <a href=""  className="nav_icons"><div  className=" Nav_icon_1"><IoPerson /></div>About</a>
 
             <a  className="nav_icons"><div  className=" Nav_icon_1"><VscBook /></div>Quiz</a>
 
