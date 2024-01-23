@@ -1,5 +1,6 @@
 import React from "react";
 import { QuizData } from "./Helper";
+import { Link, NavLink } from "react-router-dom";
 
 const Quiz = () => {
   return (
@@ -21,9 +22,12 @@ const Quiz = () => {
                     <img className=" rounded-lg" src={obj.Img} alt="img" />
                     <h5 className=" font-bold mt-4 text-xl">{obj.Heading}</h5>
                     <p className=" pt-1">{obj.Para}</p>
-                    <button className="w-full text-[#fff] bg-black hover:bg-white hover:text-[#000]  duration-200 font-semibold py-2 mt-5 border-[2px] rounded-lg border-solid border-black">
-                      Play
-                    </button>
+
+                    <NavLink to={obj.nextpage}>
+                      <button className="w-full text-[#fff] bg-black hover:bg-white hover:text-[#000]  duration-200 font-semibold py-2 mt-5 border-[2px] rounded-lg border-solid border-black">
+                        Play
+                      </button>
+                    </NavLink>
                   </div>
                 </div>
               );
