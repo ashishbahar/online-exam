@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { data } from "../Data/data.jsx";
 const Quiz = () => {
-  let [index, setIndex] = useState(0);
-  let [question, setQuestion] = useState(data[index]);
+  const [index, setIndex] = useState(0);
+  const [question, setQuestion] = useState(data[index]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showAnswer, setshowAnswer] = useState(question.Ans);
-  let [lock, setLock] = useState(false);
+  const [lock, setLock] = useState(false);
+  const [userAnswers, setUserAnswers] = useState([]);
 
   // Answer Checking
   const checkAns = (e, ans) => {
@@ -16,8 +17,10 @@ const Quiz = () => {
         setLock(true);
       }
       setSelectedAnswer(ans);
+      setUserAnswers((prevAnswers) => [...prevAnswers, ans]);
     }
   };
+  console.log(userAnswers);
   // Use useEffect to update the question when index changes
   useEffect(() => {
     setSelectedAnswer(null);
@@ -28,6 +31,12 @@ const Quiz = () => {
 
   function prevQues() {
     setIndex(index - 1);
+    setSelectedAnswer(userAnswers);
+    setLock(true);
+  }
+  function fnshowAns() {
+    setshowAnswer(true);
+    setSelectedAnswer(question.Ans);
   }
 
   return (
@@ -111,13 +120,7 @@ const Quiz = () => {
                 </button>
               </div>
               <div className="flex text-start mt-3">
-                <button
-                  onClick={() =>
-                    setshowAnswer(true) && setSelectedAnswer(question.Ans)
-                  }
-                >
-                  Show Answer
-                </button>
+                <button onClick={fnshowAns}>Show Answer</button>
               </div>
               <div className="m-auto text-md mt-3">
                 {index + 1} of 50 Questions
