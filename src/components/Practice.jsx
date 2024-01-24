@@ -1,68 +1,146 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { data } from "../Data/data.jsx";
 const Quiz = () => {
-  let [index] = useState(0);
-  let [question] = useState(data[index]);
-  let [lock, setlock] = useState(false);
+  let [index, setIndex] = useState(0);
+  let [question, setQuestion] = useState(data[index]);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [showAnswer, setshowAnswer] = useState(question.Ans);
+  let [lock, setLock] = useState(false);
 
-  // Answar Cheaking
+  // Answer Checking
   const checkAns = (e, ans) => {
     if (lock === false) {
       if (question.Ans === ans) {
-        e.target.classList.add("correct");
-        setlock(true);
+        setLock(true);
       } else {
-        e.target.classList.add("wrong");
-        setlock(true);
+        setLock(true);
       }
+      setSelectedAnswer(ans);
     }
   };
+  // Use useEffect to update the question when index changes
+  useEffect(() => {
+    setSelectedAnswer(null);
+    setLock(false);
+    setQuestion(data[index]);
+    setshowAnswer(false);
+  }, [index]);
+
+  function prevQues() {
+    setIndex(index - 1);
+  }
 
   return (
     <>
-      <div className="">
+      <div className="py-5">
         <div className="container bg-white p-10 rounded-md">
-          <h1 className="text-start text-4xl font-semibold">Quiz</h1>
+          <h1 className="text-center text-4xl font-semibold">Quiz</h1>
           <hr className="h-[2px] bg-black border-none" />
-          <h2 className="text-2xl text-start ">
-            {index + 1}. {question.Questions}
-          </h2>
-          <div className="Quiz_list">
-            <ul>
-              <li
-                onClick={(e) => {
-                  checkAns(e, "A");
-                }}
-              >
-                {question.A}
-              </li>
-              <li
-                onClick={(e) => {
-                  checkAns(e, "B");
-                }}
-              >
-                {question.B}
-              </li>
-              <li
-                onClick={(e) => {
-                  checkAns(e, "C");
-                }}
-              >
-                {question.C}
-              </li>
-              <li
-                onClick={(e) => {
-                  checkAns(e, "D");
-                }}
-              >
-                {question.D}
-              </li>
-            </ul>
+          <div id="question-box" className={index === 50 ? "hidden" : "block"}>
+            <h2 className="text-2xl text-start mt-3">
+              {index + 1}. {question.Questions}
+            </h2>
+            <div className="Quiz_list mt-3">
+              <ul>
+                <li
+                  onClick={(e) => checkAns(e, "A")}
+                  className={
+                    selectedAnswer === "A" || showAnswer === true
+                      ? question.Ans === "A"
+                        ? "correct"
+                        : "wrong"
+                      : ""
+                  }
+                >
+                  {question.A}
+                </li>
+                <li
+                  onClick={(e) => checkAns(e, "B")}
+                  className={
+                    selectedAnswer === "B" || showAnswer === true
+                      ? question.Ans === "B"
+                        ? "correct"
+                        : "wrong"
+                      : ""
+                  }
+                >
+                  {question.B}
+                </li>
+                <li
+                  onClick={(e) => checkAns(e, "C")}
+                  className={
+                    selectedAnswer === "C" || showAnswer === true
+                      ? question.Ans === "C"
+                        ? "correct"
+                        : "wrong"
+                      : ""
+                  }
+                >
+                  {question.C}
+                </li>
+                <li
+                  onClick={(e) => checkAns(e, "D")}
+                  className={
+                    selectedAnswer === "D" || showAnswer === true
+                      ? question.Ans === "D"
+                        ? "correct"
+                        : "wrong"
+                      : ""
+                  }
+                >
+                  {question.D}
+                </li>
+              </ul>
+            </div>
+            <div className="text-center">
+              <div className="flex justify-between">
+                <div className="flex gap-2">
+                  <button disabled={index === 0} onClick={prevQues}>
+                    Prev
+                  </button>
+                  <button
+                    disabled={selectedAnswer === null}
+                    onClick={() => setIndex(index + 1)}
+                  >
+                    Next
+                  </button>
+                </div>
+
+                <button disabled={index === 0} onClick={() => setIndex(0)}>
+                  Restart Quiz
+                </button>
+              </div>
+              <div className="flex text-start mt-3">
+                <button
+                  onClick={() =>
+                    setshowAnswer(true) && setSelectedAnswer(question.Ans)
+                  }
+                >
+                  Show Answer
+                </button>
+              </div>
+              <div className="m-auto text-md mt-3">
+                {index + 1} of 50 Questions
+              </div>
+            </div>
           </div>
-
-          <button className="">Next</button>
-
-          <div className="m-auto text-md">1 of 5 Questions</div>
+          <h2
+            id="completion "
+            className={
+              index === 50
+                ? "block text-center text-4xl font-semibold mt-8"
+                : "hidden"
+            }
+          >
+            You have completed set 1
+          </h2>
+          <button
+            id="restart-quiz"
+            className={index === 50 ? "block mx-auto mt-5" : "hidden"}
+            onClick={() => setIndex(0)}
+          >
+            Restart Quiz
+          </button>
         </div>
       </div>
     </>

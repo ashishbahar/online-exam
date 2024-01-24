@@ -1,11 +1,9 @@
-import React from "react";
-// import { NavLink } from 'react-router-dom';
+import React from "react";  
 import { FaHome } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import { FaHandPointRight } from "react-icons/fa";
 import { VscBook } from "react-icons/vsc";
 import { Link, NavLink } from "react-router-dom";
-// import '../Style/Style.css'
 
 const NavBar = () => {
   return (
