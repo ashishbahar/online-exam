@@ -31,8 +31,6 @@ const Quiz = () => {
 
   function prevQues() {
     setIndex(index - 1);
-    setSelectedAnswer(userAnswers);
-    setLock(true);
   }
   function fnshowAns() {
     setshowAnswer(true);
