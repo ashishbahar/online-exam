@@ -11,7 +11,6 @@ const Quiz = () => {
           Exercise your brain with these interesting quizzes and puzzles; win
           points, badges, prizes and impress your friends & colleagues!
         </p>
-
         <p className="font-medium text-3xl ">Latest Quizzes</p>
         <div className=" flex-wrap pt-10 mx-[-12px] flex-col lg:flex-row flex">
           {QuizData &&

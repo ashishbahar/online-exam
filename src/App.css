@@ -25,9 +25,10 @@
 }
 
 .container {
-  max-width: 640px;
+  width: 650px;
+  max-width: 60%;
   border: 1px solid black;
-  margin: auto auto;
+  margin: 0 right;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -35,8 +36,7 @@
 
 .Quiz_list ul li {
   border: 1px solid black;
-  height: 50px;
-  text-align: center;
+  text-align: start;
   padding-top: 10px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -49,11 +49,9 @@
   border: 1px solid black;
   width: 140px;
   border-radius: 8px;
-  height: 35px;
   background-color: #553f9a;
   color: white;
   font-size: 18px;
-
   font-weight: 500;
   cursor: pointer;
 }
@@ -69,6 +67,19 @@
   border-color: red;
 }
 
-.display-block{
+.display-block {
   display: block;
+}
+
+.set-div {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100px;
+}
+
+.topics-div {
+  max-width: 600px;
+  max-height: 500px;
+  position: fixed;
+  right: 0;
 }

@@ -1,4 +1,4 @@
-import React from "react";  
+import React from "react";
 import { FaHome } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import { FaHandPointRight } from "react-icons/fa";
@@ -40,7 +40,7 @@ const NavBar = () => {
               Quiz
             </NavLink>
 
-            <NavLink to="/Quiz" className="nav_icons">
+            <NavLink to="/Practice" className="nav_icons">
               <div className=" Nav_icon_1">
                 <FaHandPointRight />
               </div>
