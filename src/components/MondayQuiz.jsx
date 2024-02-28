@@ -74,7 +74,7 @@ const MondayQuiz = () => {
   const handleClose = () => {
     setIsOpen(false);
     setSelectedAnswers({}); // Reset selected answers state
-    const randomQuestions = getRandomQuestions(data, 2); // Fetch new random questions
+    const randomQuestions = getRandomQuestions(data, 10); // Fetch new random questions
     setVisibleQuestions(randomQuestions); // Update visible questions
   };
 
